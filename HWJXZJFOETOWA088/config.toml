@@ -1,0 +1,21 @@
+# Streamlit's own native theme config -- governs default text/background
+# colors app-wide (not just what our CSS injection can reach), and the
+# dev-mode toolbar. This is what was causing the washed-out/invisible text
+# on headings and captions: without this, unstyled text falls back to
+# Streamlit's own default theme colors, which clash with our dark palette.
+#
+# Note: the white "Deploy" toolbar this fixes only shows when running via
+# `streamlit run` locally -- inside Snowflake the app is embedded in
+# Snowsight's own chrome and that bar doesn't exist at all, so this part is
+# purely a local-dev polish. The [theme] colors below matter in both places.
+
+[theme]
+base = "dark"
+primaryColor = "#29B5E8"
+backgroundColor = "#0A0E17"
+secondaryBackgroundColor = "#121826"
+textColor = "#ECEFF4"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"
